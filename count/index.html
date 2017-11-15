@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+	<meta charset="UTF-8">
+	<title>計數器</title>
+</head>
+<body>
+	<link rel="stylesheet" href="sweetAlert2/sweetalert2.min.css"> 
+	<div id="vueApp"> 
+		<button @click="addCounter()">添加一組</button>
+		<table border="1">
+			<tr>
+				<th>組別</th>
+				<th>名稱</th>
+				<th>計數器</th>
+				<th>功能</th>
+			</tr>
+			<tr v-for="(item, index) in theCounterData">
+				<td>{{ index+1 }}</td>
+				<td>{{ item.name }}</td>
+				<td>
+					{{ item.count }}
+				</td>
+				<td>  
+					<button @click="plusCounter(item)">+1</button>
+					<button @click="clearCounter(item)">歸零</button>
+					<button @click="delCounter(index)">刪除</button>
+					<button @click="setCounter(item)">設定</button>
+					<button @click="setCounterName(item)">設定名稱</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<!-- 引入Script -->
+	<script src="jquery.js"></script>
+	<script src="vue.min.js"></script>
+	<script src="sweetAlert2/es6-promise.auto.min.js"></script>
+	<script src="sweetAlert2/sweetalert2.min.js"></script>
+	<script src="main.js"></script>
+	
+</body>
+</html>
